@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+
+{% block title %}View - Foundation Finder{% endblock %}
+
+{% block content %}
+<div class = "row spacing"></div>
+<div class="row item-container">
+    <div class = "col-2"></div>
+    <div class = "col-8 main-col">
+        <div class = "row">
+            <div class = "col-12 col-md-6 item-image-container">
+                <img src="{{ item.Image }}" alt="{{ item.Name }} Image">
+                <div class="item-caption">
+                    {{ item.Shade_Name }}
+                </div>
+            </div>
+            <div class = "col-12 col-md-6 item-main-text">
+                <div class = "row item-name">
+                    {{ item.Name }}
+                </div>
+                <div class = "row item-brand">
+                    {{ item.Brand }}
+                </div>
+                <div class = "row item-price">
+                    {{ item.Price }}     
+                </div>
+                <div class = "row item-rating-container">
+                    <div class = "item-rating">
+                        Rating: <strong> {{ item.Average_Rating.split('/')[0] + ' / ' + item.Average_Rating.split('/')[1] }}</strong>
+                    </div>
+                </div>
+                <div class = "row">
+                    <div class = "col-10 attr-box">
+                        <div class = "attr-text">
+                            Type: 
+                            <div class = "segoe"> {{ item.Type }} </div>
+                            <br>   
+                            Shade Range: 
+                            <div class = "segoe"> {{ item.Shade_Range }} </div>
+                            <br> 
+                            Similar Foundations:
+                            <div class = "segoe">
+                                {% for similar_id in item.Similar_Foundations_IDs %}
+                                <a href="{{ url_for('view', id=similar_id) }}">{{ similar_id }}</a>{% if not loop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row spacing2"></div>
+        <div class = "row">
+            <div class = "item-options-container">
+                <div class = "col-12">
+                    <div class = "item-options">
+                        <span class="options-label">Options:</span>
+                        {% for color_option in item.Other_Color_Options %}
+                        {{ color_option }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row spacing2"></div>
+        <div class = "row">
+            <div class = "item-summary-container">
+                <div class = "col-12">
+                    <div class = "item-summary">                
+                        {{ item.Summary }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class = "row spacing2"></div>
+        <a href="{{ url_for('edit', id=item.Id) }}" class="btn btn-primary">Edit</a>
+        <div class = "row spacing"></div>
+    </div>
+</div>
+<div class = "col-2"> </div>
+
+{% endblock %}

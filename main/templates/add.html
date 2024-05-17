@@ -1,0 +1,82 @@
+﻿{% extends "layout.html" %}
+{% block title %}Add New Item - Foundation Finder{% endblock %}
+{% block content %}
+<div class="row spacing"></div>
+<div class="row item-container">
+    <div class="col-2"></div>
+    <div class="col-8 main-col">
+        <div id="success-message" style="display: none;"></div>
+        <form id="add-form" method="post" onsubmit="return validateForm()">
+            <div class="form-group">
+                <label class="custom-label" for="name">Name:</label>
+                <input type="text" class="form-control" id="name" name="name" pattern="\S.*" title="Enter a valid name (cannot be empty or contain only whitespace)" required>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="image">Image URL:</label>
+                <input type="url" class="form-control" id="image" name="image" pattern="https?://.+" title="Enter a valid image URL" required>
+                <small id="imageHelp" class="form-text text-muted">Enter a valid image URL</small>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="price">Price:</label>
+                <input type="text" class="form-control" id="price" name="price" pattern="^\$\d+\.\d{2}$" title="Enter a valid price format (e.g., $18.70)" required>
+                <small id="priceHelp" class="form-text text-muted">Enter the price in the format of numbers with 2 decimal places (e.g., $18.70)</small>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="rating">Rating:</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" id="rating" name="rating"  min="0" max="5" step="0.1" title="Enter a valid rating (e.g., 4.5)" required>
+                    <div class="input-group-append">
+                        <span class="input-group-text">/5.0</span>
+                    </div>
+                </div>
+                <small id="ratingHelp" class="form-text text-muted">Enter a rating between 0 and 5 with one decimal place (e.g., 4.5)</small>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="brand">Brand:</label>
+                <input type="text" class="form-control" id="brand" name="brand"  pattern="\S.*" title="Enter a valid brand (cannot be empty or contain only whitespace)" required>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="type">Type:</label>
+                <input type="text" class="form-control" id="type" name="type"  pattern="\S.*" title="Enter a valid type (cannot be empty or contain only whitespace)" required>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="shade_name">Shade Name:</label>
+                <input type="text" class="form-control" id="shade_name" name="shade_name" pattern="\S.*" title="Enter a valid shade name (cannot be empty or contain only whitespace)"required>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="shade_range">Shade Range:</label>
+                <input type="text" class="form-control" id="shade_range" name="shade_range"  pattern="\S.*" title="Enter a valid shade range (cannot be empty or contain only whitespace)" required>
+            </div>
+            <div class="form-group">
+                <label class="custom-label" for="summary">Summary:</label>
+                <textarea class="form-control" id="summary" name="summary" rows="4" style="height: 150px;" title="Enter a valid summary (cannot be empty or contain only whitespace)" required></textarea>
+            </div>
+            <div class="form-group" id="color-options-container">
+                <label class="custom-label" for="color_options">Color Options:</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" name="color_option[]" pattern="\S.*" title="Enter a valid color option (cannot be empty or contain only whitespace)" required>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-danger" onclick="removeColorOption(this)">Remove</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success add-button" onclick="addColorOption()">Add Color Option</button>
+            </div>
+            <div class="form-group" id="similar-ids-container">
+                <label class="custom-label" for="similar_ids">Similar Foundation IDs:</label>
+                <div class="input-group">
+                    <input type="number" class="form-control" name="similar_id[]" min="1" title="Enter a valid foundation id (cannot be empty or contain only whitespace)" required>
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-danger" onclick="removeSimilarId(this)">Remove</button>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-success add-button" onclick="addSimilarId()">Add Similar Foundation ID</button>
+            </div>
+            <div class = "spacing2"></div>
+            <button type="submit" class="btn btn-success">Add Item</button>
+            <button type="button" class="btn btn-secondary" onclick="Cancel()">Cancel</button>
+        </form>
+    </div>
+    <div class="col-2"></div>
+</div>
+<div class="row spacing"></div>
+{% endblock %}

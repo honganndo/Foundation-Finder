@@ -1,0 +1,497 @@
+﻿/* import fonts */
+@font-face {
+   font-family: 'yu-mincho';
+   src: url('/static/yu-mincho-regular.ttf');
+}
+
+@font-face {
+   font-family: 'segoe';
+   src: url('/static/segoe-ui.ttf');
+}
+
+@font-face {
+   font-family: 'segoe-light';
+   src: url('/static/segoe-ui-light.ttf');
+}
+
+@font-face {
+   font-family: 'vani';
+   src: url('/static/vani.ttf');
+}
+
+/* general styling */
+header {
+   text-align: center;
+   padding: 20px;
+   margin-bottom: 20px;
+}
+
+body {
+   background-color: #F5F4F1 !important;
+   font-family: 'Arial', sans-serif;
+   margin: 0;
+   padding: 0;
+}
+
+ul.list-unstyled {
+   list-style: none;
+}
+
+.spacing {
+   padding: 20px;
+   background-color: #F5F4F1;
+}
+
+.spacing2 {
+   padding: 10px;
+   background-color: #F5F4F1;
+}
+
+.segoe {
+   font-family: segoe-light;
+   display: inline-block;
+}
+
+/*************************** navbar styling **************************/
+.navbar {
+   background-color: white;
+   overflow: hidden;
+   padding: 12px;
+   color: #207a0a;
+   display: flex;
+   justify-content: space-between;
+}
+
+.navbar h1 {
+   margin: 5px;
+}
+
+.navbar h1.logo {
+   font-family: yu-mincho;
+   font-size: 35px;
+   font-stretch: 200%;
+   margin-left: 25px;
+   text-wrap: nowrap;
+}
+
+@media screen and (max-width: 1080px) {
+   .logo {
+      display: block;
+      justify-content: center;
+      text-align: center;
+   }
+
+   .navbar-buttons {
+      display: flex;
+      justify-content: center;
+   }
+
+   .navbar h1.logo {
+      margin: 0px;
+   }
+}
+
+.logo-image {
+   max-width: 15%;
+   height: auto;
+   align-items: center;
+}
+
+.navbar h1 a {
+   text-decoration: none;
+   color: inherit;
+}
+
+.navbar h1 a:hover {
+   text-decoration: none;
+   color: inherit;
+}
+
+.navbar-buttons {
+   display: flex;
+   text-align: right;
+   justify-content: right;
+   align-items: center;
+}
+
+.add-item-button {
+   margin-right: 25px;
+   font-family: segoe-light;
+   font-style: bold;
+   background-color: none;
+   color: #207a0a;
+   padding: 5px 10px;
+   border: 1px solid #207a0a;
+   border-radius: 5px;
+   cursor: pointer;
+   text-decoration: none;
+   text-wrap: nowrap;
+}
+
+.add-item-button:hover {
+   color: white;
+   background-color: #2d8517;
+}
+
+.search-bar {
+   font-family: segoe-light;
+   display: flex;
+   align-items: center;
+}
+
+.search_input {
+   font-family: segoe-light;
+   padding: 5px;
+   margin-right: 10px;
+   border: 1px solid lightgray;
+   border-radius: 7px;
+}
+
+.search-button {
+   font-family: segoe-light;
+   font-style: bold;
+   background-color: #C65A5A;
+   color: white;
+   padding: 5px 10px;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
+/*************************** navbar styling end **************************/
+
+/*************************** home image styling **************************/
+.image-overlay-container {
+   position: relative;
+   text-align: center;
+   margin-bottom: 20px;
+}
+
+.image-overlay-container img {
+   max-width: none;
+   max-height: 450px;
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+   display: block;
+}
+
+.image-overlay-container::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: rgba(0, 0, 0, 0.15);
+}
+
+.overlay-text {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   color: white;
+   text-align: center;
+}
+
+.overlay-text h2 {
+   font-family: yu-mincho;
+   font-size: 60px;
+   font-stretch: 200%;
+   margin-bottom: 10px;
+}
+
+
+.foundation-link {
+   text-align: center;
+   display: block;
+   text-decoration: none;
+   color: inherit;
+   margin-bottom: 10px;
+}
+
+.foundation-name {
+   display: block;
+   font-family: segoe-light;
+   font-size: 20px;
+   font-style: bold;
+   text-align: center;
+   margin-top: 10px;
+}
+
+.foundation-price {
+   display: block;
+   font-size: 20px;
+   text-align: center;
+   font-family: segoe;
+}
+
+.foundation-image {
+   max-width: 100%;
+   height: 350px;
+   object-fit: cover;
+   margin-top: 5px;
+   margin-bottom: 5px;
+   border: 20px solid #C65A5A;
+}
+
+.foundation-link:hover {
+   text-decoration: none;
+   color: #5AC036;
+}
+
+.home-container {
+   padding: 0px;
+   background-color: #F5F4F1;
+}
+
+.home-title {
+   padding-top: 30px;
+   font-family: yu-mincho;
+   margin-left: 40px;
+   text-align: center;
+   color: #2A5B19;
+}
+
+.home-list {
+   list-style: none;
+   text-align: center;
+   padding: 0;
+}
+/*************************** home image styling end **************************/
+
+/*************************** view/id styling **************************/
+.item-container {
+   background-color: #F5F4F1;
+}
+
+.item-image-container {
+   position: relative;
+   text-align: center;
+   padding-right: 0px;
+   margin: 0px;
+}
+
+.item-image-container img {
+   width: 100%;
+   height: auto;
+   object-fit: cover;
+   display: block;
+   border: 25px solid #C65A5A;
+}
+
+.item-caption {
+   position: absolute;
+   bottom: 0;
+   left: 50%;
+   transform: translateX(-50%);
+   color: white;
+   text-align: center;
+   font-size: 18px;
+   font-family: segoe;
+}
+
+.item-main-text {
+   background-color: white;
+}
+
+.item-name {
+   font-family: vani;
+   font-size: 180%;
+   padding-bottom: 0px;
+   margin: 0px;
+   text-wrap: nowrap;
+   padding-top: 40px;
+   padding-left: 30px;
+}
+
+.item-brand {
+   font-family: segoe-light;
+   font-size: 20px;
+   padding-left: 30px;
+}
+
+.item-price {
+   font-family: segoe-light;
+   font-size: 36px;
+   padding-top: 50px;
+   padding-bottom: 5px;
+   padding-left: 30px;
+   color: #2A5B19;
+   font-weight: bold;
+}
+
+.item-rating-container {
+   padding-left: 23px;
+   padding-top: 5px;
+   padding-bottom: 50px;
+}
+
+.item-rating {
+   padding: 0px;
+   font-family: segoe-light;
+   font-size: 20px;
+}
+
+.rating-number {
+   font-weight: bold;
+}
+
+.attr-box {
+   font-family: vani;
+   margin-top: 20px;
+   margin-left: 30px;
+   padding: 25px;
+   padding-left: 10px;
+   padding-right: 20px;
+   font-size: 18px;
+   background-color: #EDF6E4;
+}
+
+.attr-text {
+   padding-left: 15px;
+}
+
+.item-options-container {
+   padding-top: 20px;
+   padding-bottom: 20px;
+   margin-top: 20px;
+   background-color: white;
+   border-left: 10px solid #F5F4F1;
+}
+
+.options-label {
+   font-size: 20px;
+   color: #207a0a;
+}
+
+.item-options {
+   font-family: segoe-light;
+   font-size: 17px;
+   padding-left: 15px;
+}
+
+.item-summary-container {
+   padding-top: 20px;
+   padding-bottom: 30px;
+   margin-top: 20px;
+   background-color: white;
+   border-left: 10px solid #F5F4F1;
+}
+
+.item-summary {
+   font-family: segoe;
+   padding-left: 15px;
+   padding-right: 15px;
+   padding-top: 10px;
+}
+/*************************** view/id styling end **************************/
+
+/*************************** search styling **************************/
+.highlight {
+   background-color: #dbf0cc;
+}
+
+.results-title {
+   font-family: yu-mincho;
+   color: #b34040;
+   padding-left: 10px;
+   font-weight: bold;
+   padding-bottom: 5px;
+}
+
+.results-summary {
+   font-family: segoe;
+}
+
+.results-shade-range {
+   font-family: segoe;
+}
+
+.dark-red {
+   color: #b34040;
+}
+
+.search-container {
+   margin-top: 20px;
+   margin-left: 40px;
+   margin-right: 40px;
+   margin-bottom: 30px;
+}
+
+.search-link {
+   font-family: vani;
+   font-size: 20px;
+   padding-bottom: 15px;
+   text-align: left;
+   text-decoration: none;
+   color: black;
+}
+
+.search-link:hover {
+   text-decoration: none;
+   color: #5AC036;
+}
+/*************************** search styling end**************************/
+
+
+/*************************** itemnotfound page styling **************************/
+.inf-container {
+   text-align: center;
+}
+
+.inf-title {
+   padding-top: 40px;
+   font-family: vani;
+}
+
+.inf-id {
+   font-family: segoe;
+   padding-bottom: 15px;
+}
+/*************************** itemnotfound page styling end **************************/
+
+
+/*************************** edit/add form styling **************************/
+.form-group {
+   padding-bottom: 10px;
+}
+
+.custom-label {
+   font-family: segoe;
+   color: #b34040;
+   font-size: 17px;
+}
+
+.success-message {
+   font-family: yu-mincho;
+   font-size: 18px;
+   color: #207a0a;
+   padding: 5px;
+}
+
+.link-color {
+   font-family: segoe;
+   color: #C65A5A;
+}
+
+.link-padding {
+   padding-left: 10px;
+   padding-top: 20px;
+}
+
+.add-button {
+   background-color: #4bb0db !important;
+}
+
+.btn-primary {
+   background-color: lightgray !important;
+   border: 1px solid darkgray !important;
+}
+
+.btn-outline-success {
+   font-family: segoe !important;
+   margin-left: 5px !important;
+   margin-bottom: 5px !important;
+}
+/*************************** edit/add form styling end **************************/

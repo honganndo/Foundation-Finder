@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Homepage - Foundation Finder{% endblock %}
+
+{% block content %}
+
+<div class="home-container">
+    <div class="row">
+        <div class="col-12">
+            <div class="image-overlay-container">
+                <img src="https://img.freepik.com/free-photo/close-up-african-caucasian-woman-s-face-with-skin-tone-foundation-cream_23-2148178723.jpg?t=st=1709967973~exp=1709971573~hmac=6fbaaa08d66a0581d285d81602ba3af985fe09e68486aed4f1523a350b463fa4&w=1060" alt="Find Your Perfect Shadee">
+                <div class="overlay-text">
+                    <h2>Find Your Perfect Shade</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = "row">
+        <h1 class="home-title">Most Popular Foundations This Week</h1>
+    </div>
+    <div class="row" id="foundations-container">
+        <ul id="popular-list" class="col-12 home-list">            
+        </ul>
+    </div>
+    <script>
+        var data = {{ Data | tojson }};
+    </script>
+</div>
+
+{% endblock %}

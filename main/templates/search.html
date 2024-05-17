@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}Search Results - Foundation Finder{% endblock %}
+
+{% block content %}
+    
+    <div class="search-container">     
+        {% if matching_items %}
+        <div class = "results-title"> <h2> {{ num_items }} search results for "{{ search_input }}" </h2></div>
+            <ul class="list-group list-unstyled">
+                {% for item in matching_items %}
+                    <li class="list-group-item">
+                        <a href="{{ url_for('view', id=item.Id) }}" class="search-link">  
+                        {% autoescape false %}
+                          {{ item.Name|lower()|replace(search_input.lower(), '<span class="highlight">' + search_input.lower() + '</span>') }}                 
+                        {% endautoescape %} 
+                        </a>
+                        <div class = "results-summary"><p>
+                          {% autoescape false %}
+                          {{ item.Summary|lower()|replace(search_input.lower(), '<span class="highlight">' + search_input.lower() + '</span>') }}                 
+                        {% endautoescape %}                        
+                        </p></div>
+                        <div class = "results-shade-range"><p>
+                          {% autoescape false %}
+                          Shade Range: <span class = "dark-red">{{ item.Shade_Range|lower()|replace(search_input.lower(), '<span class="highlight">' + search_input.lower() + '</span>') }}  </span>               
+                        {% endautoescape %}                        
+                        </p></div>                        
+                    </li>
+                {% endfor %}
+            </ul>
+        {% elif not matching_items %}
+            <div class = "results-title"> <h2> No matches for "{{ search_input }}" found </h2></div>
+            <a href="{{ url_for('home') }}" class="link-color link-padding">Back to Homepage</a>
+        {% endif %}
+    </div>
+
+
+{% endblock %}
